@@ -7,7 +7,7 @@
 # All rights reserved - Do Not Redistribute
 #
 
-%w{php-fpm}.each do |pkg|
+%w{php-fpm php php-mbstring php-gd php-pear php-xml php-mysql}.each do |pkg|
   package pkg do
     action :install
     notifies :restart, "service[php-fpm]"
