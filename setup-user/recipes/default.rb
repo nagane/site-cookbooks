@@ -9,12 +9,6 @@
 
 accounts = data_bag('user_accounts')
 
-#user 'nagane' do
-#  password "$1$pzGiCXcX$04QsjWWwNCzPS.lWuTdFL0"
-#  supports :manage_home => true
-#  action [:create]
-#end
-
 accounts.each do |id|
 
   item = data_bag_item('user_accounts', id)
