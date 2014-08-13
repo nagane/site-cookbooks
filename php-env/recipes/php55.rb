@@ -14,7 +14,7 @@ yum_repository 'remi-php55' do
   action :create
 end
 
-%w{php php-fpm php-opcache}.each do |pkg|
+%w{php php-fpm php-opcache php-devel}.each do |pkg|
   package pkg do
     action :install
     notifies :restart, "service[php-fpm]"
