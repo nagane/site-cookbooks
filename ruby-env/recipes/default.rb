@@ -50,3 +50,21 @@ execute "rbenv install #{node['ruby-env']['version']}" do
   environment 'HOME' => "/home/#{node['ruby-env']['user']}"
   not_if  { File.exists?("/home/#{node['ruby-env']['user']}/.rbenv/versions/#{node['ruby-env']['version']}")}
 end
+
+bash "ruby change" do
+  #not_if "/home/#{node['ruby-env']['user']}/.rbenv/bin/rbenv versions | grep #{node['ruby-env']['version']}"
+  #not_if "/home/#{node['ruby-env']['user']}/.rbenv/bin/rbenv versions | grep 2.1.2"
+  code <<-EOC
+  /home/#{node['ruby-env']['user']}/.rbenv/bin/rbenv global 2.1.1
+  EOC
+end
+#execute "source export" do
+#  command ". /home/#{node['ruby-env']['user']}/.bash_profile"
+#  action :run
+#end
+#
+#execute "ruby change" do
+#  not_if "rbenv versions | grep #{node['ruby-env']['version']}"
+#  command "rbenv global #{node['ruby-env']['version']} ; rbenv rehash"
+#  action :run
+#end
