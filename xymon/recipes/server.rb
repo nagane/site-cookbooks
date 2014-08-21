@@ -7,6 +7,10 @@ cookbook_file "/tmp/#{filename}" do
   source "#{filename}"
 end
 
+package "rrdtool" do
+  action :install
+end
+
 package "xymon" do
   action :install
   provider Chef::Provider::Package::Rpm
