@@ -10,7 +10,7 @@
 # or (multiple servers)
 #   XYMONSERVERS="10.0.0.1 192.168.1.1"
 
-XYMONSERVERS="<%= node['xymon']['server'] %>"
+XYMONSERVERS="<%= node['xymon']['server'].join(' ') %>"
 
 # The defaults usually suffice for the rest of this file,
 # but you can tweak the hostname that the client reports
