@@ -7,6 +7,12 @@ cookbook_file "/tmp/#{filename}" do
   source "#{filename}"
 end
 
+package "xymon-client" do
+  action :install
+  provider Chef::Provider::Package::Rpm
+  source "/tmp/#{filename}"
+end 
+
 template '/etc/default/xymon-client' do
   source 'xymon-client.erb'
   owner 'xymon'
@@ -14,12 +20,6 @@ template '/etc/default/xymon-client' do
   mode '0644'
   notifies :restart, 'service[xymon-client]'
 end
-
-package "xymon-client" do
-  action :install
-  provider Chef::Provider::Package::Rpm
-  source "/tmp/#{filename}"
-end 
 
 service "xymon-client" do
   action [:enable, :start]
