@@ -27,10 +27,24 @@ options {
 };
 
 logging {
-  channel default_debug {
-    file "data/named.run";
-    severity dynamic;
+  channel log_default {
+    file "/var/log/named/named.log" versions 10 size 1M;
+    severity info;
+    print-time yes;
+    print-category yes;
   };
+
+  category default { "log_default"; };
+
+  channel log_query {
+    file "/var/log/named/query.log" versions 5 size 1M;
+    severity info;
+    print-time yes;
+    print-category yes;
+  };
+
+  category queries { "log_query"; };
+  category lame-servers { null; };
 };
 
 zone "." IN {
