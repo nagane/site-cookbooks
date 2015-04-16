@@ -7,7 +7,7 @@
 # All rights reserved - Do Not Redistribute
 #
 
-%w{bridge-utils libvirt libvirt qemu-kvm virt-top qemu-kvm-tools}.each do |pkg|
+%w{bridge-utils libvirt libvirt qemu-kvm virt-top qemu-kvm-tools virt-viewer}.each do |pkg|
   package pkg do
     action :install
   end
