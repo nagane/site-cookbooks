@@ -13,6 +13,13 @@
   end
 end
 
+# install virt-edit
+%w{libguestfs libguestfs-tools libguestfs-tools-c}.each do |pkg|
+  package pkg do
+    action :install
+  end
+end
+
 group 'libvirt' do
   members node["virt-kvm"]["kvm-member"]
   append true
