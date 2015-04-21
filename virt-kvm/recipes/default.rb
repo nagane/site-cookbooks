@@ -22,7 +22,7 @@ end
 end
 
 group 'libvirt' do
-  gid 9101
+  gid node["virt-kvm"]["libvirt-group-id"]
   members node["virt-kvm"]["kvm-member"]
   append true
 end
