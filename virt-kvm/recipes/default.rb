@@ -7,6 +7,8 @@
 # All rights reserved - Do Not Redistribute
 #
 
+# install virsh base package
+
 %w{bridge-utils libvirt libvirt qemu-kvm virt-top qemu-kvm-tools virt-viewer}.each do |pkg|
   package pkg do
     action :install
@@ -21,6 +23,7 @@ end
 end
 
 group 'libvirt' do
+  gid 9001
   members node["virt-kvm"]["kvm-member"]
   append true
 end
