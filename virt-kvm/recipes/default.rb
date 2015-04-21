@@ -22,15 +22,20 @@ end
 end
 
 group 'libvirt' do
-  gid 9001
+  gid 9101
   members node["virt-kvm"]["kvm-member"]
   append true
 end
 
 # これはbaseとかに分けて最初の一回だけ実行するようにした方いいかも
-file "/etc/libvirt/libvirtd.conf.org" do
-  content IO.read("/etc/libvirt/libvirtd.conf")
-end
+# IO.readで指定してるファイルがないとエラーになる・・・
+# Ruby の IO.readを呼び出してるっぽい。
+# https://docs.chef.io/resource_file.html
+# only_ifとか全く効果なかった
+#file "/etc/libvirt/libvirtd.conf.org" do
+#  only_if { File.exists?("/etc/libvirt/libvirtd.conf") }
+#  content IO.read("/etc/libvirt/libvirtd.conf")
+#end
 
 template 'libvirtd.conf.erb' do
   path '/etc/libvirt/libvirtd.conf'
