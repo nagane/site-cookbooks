@@ -8,7 +8,7 @@
 #
 
 # install virsh base package
-%w{bridge-utils libvirt libvirt qemu-kvm virt-top qemu-kvm-tools virt-viewer}.each do |pkg|
+%w{bridge-utils libvirt libvirt qemu-kvm virt-top qemu-kvm-tools virt-viewer virt-install}.each do |pkg|
   package pkg do
     action :install
   end
