@@ -21,6 +21,14 @@ end
   end
 end
 
+# install desktop pakage
+%w{"X Window System" "Desktop"}.each do |grp|
+execute "Desktop yum group" do
+  user "root"
+  command "yum -y groupinstall Desktop"
+end
+end
+
 group 'libvirt' do
   gid node["virt-kvm"]["libvirt-group-id"]
   members node["virt-kvm"]["kvm-member"]
