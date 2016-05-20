@@ -1,9 +1,6 @@
 # zabbix Cookbook
 
-TODO: Enter the cookbook description here.
-
-e.g.
-This cookbook makes your favorite breakfast sandwich.
+[document](https://www.zabbix.com/documentation/3.0/manual/installation/install_from_packages#red_hat_enterprise_linuxcentos)
 
 ## Requirements
 
