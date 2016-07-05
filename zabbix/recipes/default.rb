@@ -1,4 +1,5 @@
 #
+#
 # Cookbook Name:: zabbix
 # Recipe:: default
 #
