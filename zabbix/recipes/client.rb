@@ -9,8 +9,12 @@ end
   end
 end
 
+service "zabbix-agent" do
+  action [ :enable, :start ]
+end
 
 template '/etc/zabbix/zabbix_agentd.conf' do
   source 'zabbix_agentd.conf.erb'
-  #notifies :restart
+  notifies :restart, "service[zabbix-agent]"
 end
+
