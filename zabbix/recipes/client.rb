@@ -1,6 +1,14 @@
 
-rpm_package 'install zabbix release' do
-  source 'http://repo.zabbix.com/zabbix/3.0/rhel/6/x86_64/zabbix-release-3.0-1.el6.noarch.rpm'
+#rpm_package 'install zabbix release' do
+#  source 'http://repo.zabbix.com/zabbix/3.0/rhel/6/x86_64/zabbix-release-3.0-1.el6.noarch.rpm'
+#end
+
+package "wget" do
+  action :install
+end
+
+execute "agent install" do
+  command "rpm -ivh http://repo.zabbix.com/zabbix/3.0/rhel/6/x86_64/zabbix-release-3.0-1.el6.noarch.rpm"
 end
 
 %w{ zabbix-agent zabbix-sender }.each do |pkg|

@@ -19,7 +19,7 @@ execute "insert time.zone to php.ini" do
 end
 
 
-%w{fping curl curl-devel OpenIPMI OpenIPMI-devel net-snmp net-snmp-devel unixODBC unixODBC-devel zabbix-server-mysql zabbix-web-mysql zabbix-web-japanese }.each do |pkg|
+%w{fping curl curl-devel OpenIPMI OpenIPMI-devel net-snmp net-snmp-devel unixODBC unixODBC-devel zabbix-server-mysql zabbix-web-mysql zabbix-web-japanese zabbx-get}.each do |pkg|
   package pkg do
     action :install
   end

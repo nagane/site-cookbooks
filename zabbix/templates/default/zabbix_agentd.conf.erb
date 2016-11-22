@@ -94,11 +94,11 @@ LogFileSize=0
 
 <% if node['zabbix']['server'] == nil  %>
 
-Server=<%= node['network']['interfaces']['eth1']['addresses'].select { |address,data| data['family'] == 'inet'}.keys[0] %>
+Server=<%= node['network']['interfaces']['eth0']['addresses'].select { |address,data| data['family'] == 'inet'}.keys[0] %>
 
 <% else %>
 
-  Server=<%= node['network']['interfaces']['eth1']['addresses'].select { |address,data| data['family'] == 'inet'}.keys[0] %>,<%= node['zabbix']['server'] %>
+  Server=<%= node['network']['interfaces']['eth0']['addresses'].select { |address,data| data['family'] == 'inet'}.keys[0] %>,<%= node['zabbix']['server'] %>
 <% end %>
 
 ### Option: ListenPort
